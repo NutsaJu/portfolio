@@ -111,7 +111,10 @@ export default async function BlogPostPage({ params }: Props) {
               </div>
               <p className="mt-8 text-ink-muted">
                 Need help shipping something similar?{" "}
-                <Link href="/#contact" className="font-semibold text-accent link-underline">
+                <Link
+                  href={{ pathname: "/", hash: "contact" }}
+                  className="font-semibold text-accent link-underline"
+                >
                   Get in touch
                 </Link>
                 .

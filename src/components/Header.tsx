@@ -7,6 +7,10 @@ import { Menu, X } from "lucide-react";
 import { navLinks, site } from "@/data/site";
 import { trackNav } from "@/lib/analytics";
 
+function isHomePath(pathname: string) {
+  return pathname === "/" || pathname === "";
+}
+
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -28,15 +32,19 @@ export function Header() {
 
   // Scroll to hash after navigating from another route (e.g. /blog → /#contact)
   useEffect(() => {
-    if (pathname !== "/") return;
-    const hash = window.location.hash.replace("#", "");
-    if (!hash) return;
-    const el = document.getElementById(hash);
-    if (el) {
-      requestAnimationFrame(() => {
-        el.scrollIntoView({ behavior: "smooth" });
-      });
-    }
+    if (!isHomePath(pathname)) return;
+
+    const scrollToHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (!hash) return;
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    // Wait a tick so home sections exist after client navigation
+    const frame = window.requestAnimationFrame(() => {
+      window.setTimeout(scrollToHash, 50);
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [pathname]);
 
   const close = () => setOpen(false);
@@ -47,11 +55,12 @@ export function Header() {
       close();
       if (!href.startsWith("/#")) return;
       const id = href.slice(2);
-      if (pathname === "/") {
+      if (isHomePath(pathname)) {
         e.preventDefault();
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
         window.history.replaceState(null, "", href);
       }
+      // Off-home: let Next.js Link navigate to /#section (includes basePath)
     };
   }
 
@@ -77,14 +86,14 @@ export function Header() {
         <nav className="hidden items-center gap-7 md:flex">
           {navLinks.map((link) =>
             link.href.startsWith("/#") ? (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                href={{ pathname: "/", hash: link.href.slice(2) }}
                 onClick={handleSectionClick(link.href, link.label)}
                 className="text-sm font-medium text-ink-muted transition-colors hover:text-ink"
               >
                 {link.label}
-              </a>
+              </Link>
             ) : (
               <Link
                 key={link.href}
@@ -121,14 +130,14 @@ export function Header() {
           <div className="flex flex-col gap-1">
             {navLinks.map((link) =>
               link.href.startsWith("/#") ? (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  href={{ pathname: "/", hash: link.href.slice(2) }}
                   onClick={handleSectionClick(link.href, link.label)}
                   className="rounded-lg px-3 py-2.5 text-base font-medium text-ink hover:bg-bg"
                 >
                   {link.label}
-                </a>
+                </Link>
               ) : (
                 <Link
                   key={link.href}
