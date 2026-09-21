@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import { site } from "@/data/site";
+import { site, ogImage } from "@/data/site";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -35,11 +35,13 @@ export const metadata: Metadata = {
     siteName: site.name,
     title,
     description,
+    images: [{ ...ogImage }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title,
     description,
+    images: [ogImage.url],
   },
   alternates: {
     canonical: "/",

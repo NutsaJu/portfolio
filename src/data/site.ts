@@ -1,6 +1,14 @@
 /** Canonical site URL for GitHub Pages project site. */
 export const siteUrl = "https://nutsaju.github.io/portfolio";
 
+/** Default Open Graph / Twitter share image (1200×630-class, 1280×720). */
+export const ogImage = {
+  url: "/og.png",
+  width: 1280,
+  height: 720,
+  alt: "Nutsa Julakidze — Frontend Developer",
+} as const;
+
 export const site = {
   name: "Nutsa Julakidze",
   role: "Frontend Developer",

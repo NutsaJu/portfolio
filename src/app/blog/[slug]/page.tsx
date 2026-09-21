@@ -6,7 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FadeIn } from "@/components/FadeIn";
 import { blogPosts, getPost } from "@/data/blog";
-import { site } from "@/data/site";
+import { site, ogImage } from "@/data/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -33,6 +33,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `/blog/${post.slug}`,
       publishedTime: post.date,
       authors: [site.name],
+      images: [{ ...ogImage, alt: post.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [ogImage.url],
     },
   };
 }

@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FadeIn } from "@/components/FadeIn";
 import { blogPosts } from "@/data/blog";
+import { ogImage } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Blog — Next.js, SEO & frontend shipping",
@@ -23,6 +24,11 @@ export const metadata: Metadata = {
     description:
       "Practical notes on Next.js, SEO, design-to-code, and shipping production frontend products.",
     url: "/blog",
+    images: [{ ...ogImage }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [ogImage.url],
   },
 };
 
