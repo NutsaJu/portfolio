@@ -5,7 +5,6 @@ export type Project = {
   role: string;
   stack: string[];
   highlights: string[];
-  url?: string;
   featured?: boolean;
 };
 
@@ -23,7 +22,6 @@ export const projects: Project[] = [
       "Stripe & Keepz payment flows",
       "Admin-managed i18n translations",
     ],
-    url: "https://globalcell.ge/",
     featured: true,
   },
   {
@@ -39,7 +37,6 @@ export const projects: Project[] = [
       "Identomat integration for personal verification (AML / KYC)",
       "Secure account dashboard and compliance-ready UX",
     ],
-    url: "https://globalpay.ge/",
     featured: true,
   },
   {
@@ -55,7 +52,6 @@ export const projects: Project[] = [
       "GEL, USD, and EUR support",
       "Identomat KYC / personal verification integration",
     ],
-    url: "https://globalvasp.ge/",
     featured: true,
   },
   {
@@ -70,7 +66,6 @@ export const projects: Project[] = [
       "Use-case sections for POS, parking, and GPS devices",
       "Contact-focused CTA and responsive layout",
     ],
-    url: "https://iotsim.ge/",
     featured: true,
   },
   {
@@ -85,7 +80,6 @@ export const projects: Project[] = [
       "Multi-language UI and secure login flows",
       "Marketing landing paired with the private portal",
     ],
-    url: "https://globalcell.me/",
     featured: true,
   },
   {
@@ -100,7 +94,6 @@ export const projects: Project[] = [
       "Centralized eSIM and data management for teams",
       "Login, consent, and support channel integrations",
     ],
-    url: "https://globalcell.business/",
     featured: true,
   },
   {
@@ -115,7 +108,6 @@ export const projects: Project[] = [
       "Package catalog across 100+ countries",
       "Dashboard UI for purchasing and managing inventory",
     ],
-    url: "https://globalcell.partners/",
     featured: true,
   },
   {
@@ -130,22 +122,21 @@ export const projects: Project[] = [
       "Commission tracking and detailed reporting dashboards",
       "Secure dealer sign-up and sign-in flows",
     ],
-    url: "https://globalcell.deals/",
     featured: true,
   },
   {
     id: "cross-platform-mobile",
-    title: "Cross-platform mobile app",
+    title: "Cross-platform mobile apps",
     summary:
-      "React Native + Expo app built as the sole mobile developer, shipped to the App Store and Google Play with push notifications.",
+      "Built 3+ React Native + Expo apps as the sole mobile developer — one is live in production on the App Store and Google Play with push notifications.",
     role: "Sole mobile developer — GlobalSoft Georgia",
     stack: ["React Native", "Expo", "React Navigation", "Push notifications"],
     highlights: [
+      "3+ apps built; 1 currently in production",
       "iOS and Android from one codebase",
       "Native modules and push notifications",
-      "App Store Connect & Google Play release",
+      "App Store Connect & Google Play release for the production app",
     ],
-    url: "https://globalcell.app/",
     featured: true,
   },
   {
@@ -159,7 +150,6 @@ export const projects: Project[] = [
       "Shipped product features end-to-end",
       "Customer app + admin panel contributions",
     ],
-    url: "https://frani.com",
   },
   {
     id: "silk-road-gaming",
@@ -169,7 +159,6 @@ export const projects: Project[] = [
     role: "React Developer — Silk Road Gaming",
     stack: ["React", "JavaScript", "Git"],
     highlights: ["Interactive UI components", "Team-based feature delivery"],
-    url: "https://silk-road-gaming-3g2l.vercel.app/",
   },
   {
     id: "taskify",
@@ -178,7 +167,6 @@ export const projects: Project[] = [
     role: "Personal project",
     stack: ["React", "JavaScript", "CSS"],
     highlights: ["Component-driven UI", "Responsive layout"],
-    url: "https://taskify-by-nj.netlify.app/",
   },
   {
     id: "zetta-hotels",
@@ -187,7 +175,6 @@ export const projects: Project[] = [
     role: "Personal / client-style project",
     stack: ["HTML", "CSS", "JavaScript"],
     highlights: ["Responsive marketing layout", "Visual-first composition"],
-    url: "https://nutsaju.github.io/zetta-hotels/",
   },
   {
     id: "fashion-landing",
@@ -196,6 +183,5 @@ export const projects: Project[] = [
     role: "Personal project",
     stack: ["HTML", "CSS", "JavaScript"],
     highlights: ["Landing page composition", "Visual hierarchy"],
-    url: "https://nutsaju.github.io/Fashion-Landing-Page/",
   },
 ];

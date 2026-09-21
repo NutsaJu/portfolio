@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 import { projects } from "@/data/projects";
 
@@ -14,7 +13,6 @@ export function Projects() {
             </h2>
             <p className="mt-4 text-lg text-ink-muted">
               Production e-commerce, portals, and mobile apps — plus earlier product experiments.
-              Live demos available on request.
             </p>
           </div>
         </FadeIn>
@@ -50,17 +48,6 @@ export function Projects() {
                     </span>
                   ))}
                 </div>
-
-                {project.url && (
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent link-underline"
-                  >
-                    Visit project <ArrowUpRight size={14} />
-                  </a>
-                )}
               </article>
             </FadeIn>
           ))}

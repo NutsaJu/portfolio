@@ -15,7 +15,7 @@ export const site = {
   tagline:
     "I build production web and mobile products with React, Next.js, TypeScript, and React Native.",
   summary:
-    "Frontend developer with 3+ years of experience shipping multi-language e-commerce sites, portals, admin panels, and mobile apps. Independently built 20+ storefronts, 5+ portals, and 3+ React Native apps — from implementation to App Store and Google Play release.",
+    "Frontend developer with 3+ years of experience shipping multi-language e-commerce sites, portals, admin panels, and mobile apps. Independently built 20+ storefronts, 5+ portals, and 3+ React Native apps (one currently in production on the App Store and Google Play).",
   location: "Tbilisi, Georgia",
   email: "julakidzenutsa@gmail.com",
   phone: "+995 599 160 468",

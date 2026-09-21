@@ -19,7 +19,7 @@ export const experience: Experience[] = [
       "Delivered 5+ portals and admin panels with Recharts dashboards, real-time WebSockets, and WhatsApp Business API support workflows.",
       "Built authentication and complex multi-role permissions with role-specific UI across projects.",
       "Integrated Stripe, Keepz, Google Analytics, Meta Pixel, Firebase, and multi-language i18n.",
-      "Shipped 3+ React Native (Expo) apps to the App Store and Google Play as the sole mobile developer.",
+      "Built 3+ React Native (Expo) apps as the sole mobile developer — one is live in production on the App Store and Google Play.",
     ],
   },
   {

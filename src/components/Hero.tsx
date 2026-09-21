@@ -28,7 +28,7 @@ export function Hero() {
             className="mb-5 inline-flex items-center gap-2 text-sm text-ink-muted"
           >
             <MapPin size={14} className="text-accent" />
-            {site.location} · Available for freelance &amp; contract
+            {site.location} · Available for freelance projects or part-time job
           </motion.p>
 
           <motion.h1
