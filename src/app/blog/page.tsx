@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FadeIn } from "@/components/FadeIn";
+import { TrackedBlogLink } from "@/components/TrackedBlogLink";
 import { blogPosts } from "@/data/blog";
 import { ogImage } from "@/data/site";
 
@@ -52,8 +52,10 @@ export default function BlogIndexPage() {
             <div className="mt-14 space-y-4">
               {blogPosts.map((post, index) => (
                 <FadeIn key={post.slug} delay={index * 0.04}>
-                  <Link
+                  <TrackedBlogLink
                     href={`/blog/${post.slug}`}
+                    slug={post.slug}
+                    title={post.title}
                     className="group flex flex-col gap-3 rounded-2xl bg-bg-elevated/60 p-6 transition hover:bg-bg-elevated sm:flex-row sm:items-center sm:justify-between"
                   >
                     <div className="max-w-2xl">
@@ -68,7 +70,7 @@ export default function BlogIndexPage() {
                     <span className="inline-flex items-center gap-1 text-sm font-semibold text-accent">
                       Read <ArrowUpRight size={14} />
                     </span>
-                  </Link>
+                  </TrackedBlogLink>
                 </FadeIn>
               ))}
             </div>

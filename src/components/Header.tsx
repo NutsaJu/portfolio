@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navLinks, site } from "@/data/site";
+import { trackNav } from "@/lib/analytics";
 
 export function Header() {
   const pathname = usePathname();
@@ -40,8 +41,9 @@ export function Header() {
 
   const close = () => setOpen(false);
 
-  function handleSectionClick(href: string) {
+  function handleSectionClick(href: string, label: string) {
     return (e: React.MouseEvent<HTMLAnchorElement>) => {
+      trackNav(label, href);
       close();
       if (!href.startsWith("/#")) return;
       const id = href.slice(2);
@@ -60,7 +62,14 @@ export function Header() {
       }`}
     >
       <div className="section-pad container-shell flex h-16 items-center justify-between">
-        <Link href="/" className="display text-lg font-bold tracking-tight text-ink sm:text-xl" onClick={close}>
+        <Link
+          href="/"
+          className="display text-lg font-bold tracking-tight text-ink sm:text-xl"
+          onClick={() => {
+            trackNav("Home", "/");
+            close();
+          }}
+        >
           {site.name.split(" ")[0]}
           <span className="text-accent">.</span>
         </Link>
@@ -71,7 +80,7 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={handleSectionClick(link.href)}
+                onClick={handleSectionClick(link.href, link.label)}
                 className="text-sm font-medium text-ink-muted transition-colors hover:text-ink"
               >
                 {link.label}
@@ -80,6 +89,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => trackNav(link.label, link.href)}
                 className="text-sm font-medium text-ink-muted transition-colors hover:text-ink"
               >
                 {link.label}
@@ -114,7 +124,7 @@ export function Header() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={handleSectionClick(link.href)}
+                  onClick={handleSectionClick(link.href, link.label)}
                   className="rounded-lg px-3 py-2.5 text-base font-medium text-ink hover:bg-bg"
                 >
                   {link.label}
@@ -124,7 +134,10 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   className="rounded-lg px-3 py-2.5 text-base font-medium text-ink hover:bg-bg"
-                  onClick={close}
+                  onClick={() => {
+                    trackNav(link.label, link.href);
+                    close();
+                  }}
                 >
                   {link.label}
                 </Link>

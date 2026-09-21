@@ -4,8 +4,17 @@ import { useState } from "react";
 import { Check, Code2, Copy, Link2, Mail, Phone } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 import { site } from "@/data/site";
+import { trackContactClick, trackContactCopy } from "@/lib/analytics";
 
-function CopyButton({ value, label }: { value: string; label: string }) {
+function CopyButton({
+  value,
+  label,
+  type,
+}: {
+  value: string;
+  label: string;
+  type: "email" | "phone";
+}) {
   const [copied, setCopied] = useState(false);
 
   async function handleCopy(e: React.MouseEvent) {
@@ -13,6 +22,7 @@ function CopyButton({ value, label }: { value: string; label: string }) {
     e.stopPropagation();
     try {
       await navigator.clipboard.writeText(value);
+      trackContactCopy(type);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1600);
     } catch {
@@ -55,6 +65,7 @@ export function Contact() {
             <a
               href={`mailto:${site.email}`}
               className="group flex min-w-0 flex-1 items-center gap-4"
+              onClick={() => trackContactClick("email")}
             >
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white">
                 <Mail size={18} />
@@ -64,11 +75,15 @@ export function Contact() {
                 <span className="block truncate font-semibold text-ink">{site.email}</span>
               </span>
             </a>
-            <CopyButton value={site.email} label="email" />
+            <CopyButton value={site.email} label="email" type="email" />
           </div>
 
           <div className="flex items-center gap-3 rounded-2xl bg-bg-elevated/80 p-5">
-            <a href={`tel:${phoneHref}`} className="group flex min-w-0 flex-1 items-center gap-4">
+            <a
+              href={`tel:${phoneHref}`}
+              className="group flex min-w-0 flex-1 items-center gap-4"
+              onClick={() => trackContactClick("phone")}
+            >
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white">
                 <Phone size={18} />
               </span>
@@ -77,7 +92,7 @@ export function Contact() {
                 <span className="block truncate font-semibold text-ink">{site.phone}</span>
               </span>
             </a>
-            <CopyButton value={site.phone} label="phone" />
+            <CopyButton value={site.phone} label="phone" type="phone" />
           </div>
 
           <a
@@ -85,6 +100,7 @@ export function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-4 rounded-2xl bg-bg-elevated/80 p-5 transition hover:bg-bg-elevated"
+            onClick={() => trackContactClick("linkedin")}
           >
             <span className="flex h-11 w-11 items-center justify-center rounded-full bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white">
               <Link2 size={18} />
@@ -100,6 +116,7 @@ export function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-4 rounded-2xl bg-bg-elevated/80 p-5 transition hover:bg-bg-elevated"
+            onClick={() => trackContactClick("github")}
           >
             <span className="flex h-11 w-11 items-center justify-center rounded-full bg-accent/10 text-accent transition group-hover:bg-accent group-hover:text-white">
               <Code2 size={18} />

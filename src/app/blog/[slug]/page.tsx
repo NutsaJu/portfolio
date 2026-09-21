@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { FadeIn } from "@/components/FadeIn";
 import { blogPosts, getPost } from "@/data/blog";
 import { site, ogImage } from "@/data/site";
+import { BlogViewTracker } from "@/components/BlogViewTracker";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -65,6 +66,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <BlogViewTracker slug={post.slug} title={post.title} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

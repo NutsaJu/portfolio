@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
+import { TrackedBlogLink } from "@/components/TrackedBlogLink";
 import { blogPosts } from "@/data/blog";
+import { trackNav } from "@/lib/analytics";
 
 export function BlogPreview() {
   const posts = blogPosts.slice(0, 3);
@@ -21,6 +25,7 @@ export function BlogPreview() {
           </div>
           <Link
             href="/blog"
+            onClick={() => trackNav("All articles", "/blog")}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent link-underline"
           >
             All articles <ArrowUpRight size={14} />
@@ -30,8 +35,10 @@ export function BlogPreview() {
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {posts.map((post, index) => (
             <FadeIn key={post.slug} delay={index * 0.06}>
-              <Link
+              <TrackedBlogLink
                 href={`/blog/${post.slug}`}
+                slug={post.slug}
+                title={post.title}
                 className="group flex h-full flex-col rounded-2xl bg-bg-elevated/70 p-6 transition hover:bg-bg-elevated"
               >
                 <p className="text-xs font-medium uppercase tracking-wider text-ink-muted">
@@ -44,9 +51,13 @@ export function BlogPreview() {
                   {post.description}
                 </p>
                 <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-accent">
-                  Read <ArrowUpRight size={14} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  Read{" "}
+                  <ArrowUpRight
+                    size={14}
+                    className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
                 </span>
-              </Link>
+              </TrackedBlogLink>
             </FadeIn>
           ))}
         </div>

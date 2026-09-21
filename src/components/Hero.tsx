@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDownRight, MapPin } from "lucide-react";
 import { HeroIllustration } from "@/components/HeroIllustration";
 import { site } from "@/data/site";
+import { trackCta } from "@/lib/analytics";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -58,6 +59,7 @@ export function Hero() {
           >
             <a
               href="#projects"
+              onClick={() => trackCta("view_projects")}
               className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-white transition hover:bg-accent-deep"
             >
               View projects
@@ -65,6 +67,7 @@ export function Hero() {
             </a>
             <a
               href="#contact"
+              onClick={() => trackCta("contact_me")}
               className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-bg-elevated/70 px-5 py-3 text-sm font-semibold text-ink transition hover:border-accent hover:text-accent-deep"
             >
               Contact me

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { site, ogImage } from "@/data/site";
+import { AnalyticsRoot } from "@/components/AnalyticsRoot";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -56,7 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${manrope.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col atmosphere noise text-ink" suppressHydrationWarning>
-        {children}
+        <AnalyticsRoot>{children}</AnalyticsRoot>
       </body>
     </html>
   );
