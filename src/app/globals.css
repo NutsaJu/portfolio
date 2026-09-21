@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #e8eef4;
+  --bg-elevated: #f7fafc;
+  --ink: #0b1220;
+  --ink-muted: #4a5568;
+  --line: rgba(11, 18, 32, 0.1);
+  --accent: #0f766e;
+  --accent-soft: #14b8a6;
+  --accent-deep: #0d5c56;
+  --glow: rgba(20, 184, 166, 0.22);
+  --sand: #d6c4a8;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-deep: var(--accent-deep);
+  --color-sand: var(--sand);
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-manrope);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent-soft) 45%, white);
+  color: var(--ink);
+}
+
+.atmosphere {
+  background:
+    radial-gradient(ellipse 90% 70% at 8% -5%, var(--glow), transparent 58%),
+    radial-gradient(ellipse 70% 55% at 92% 8%, rgba(214, 196, 168, 0.28), transparent 52%),
+    radial-gradient(ellipse 55% 45% at 50% 100%, rgba(15, 118, 110, 0.07), transparent 60%),
+    #eef3f8;
+}
+
+.noise {
+  position: relative;
+}
+
+.noise::before {
+  content: none;
+}
+
+.section-pad {
+  @apply px-5 sm:px-8 lg:px-12 xl:px-16;
+}
+
+.container-shell {
+  @apply mx-auto w-full max-w-6xl;
+}
+
+.display {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1.5px;
+  transition: background-size 0.25s ease;
+}
+
+.link-underline:hover {
+  background-size: 100% 1.5px;
+}
