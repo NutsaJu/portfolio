@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://nutsaju.github.io/portfolio/sitemap.xml
