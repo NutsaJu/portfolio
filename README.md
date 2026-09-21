@@ -41,6 +41,6 @@ Update copy and listings in `src/data/`:
 
 Published to GitHub Pages at [https://nutsaju.github.io/portfolio/](https://nutsaju.github.io/portfolio/).
 
-Static export is configured in `next.config.ts` (`output: "export"`, `basePath: "/portfolio"` in production). Pushing to `main` on `NutsaJu/portfolio` runs `.github/workflows/deploy.yml`.
+Static export is configured in `next.config.ts` (`output: "export"`, `basePath: "/portfolio"` in production). Pushing to `main` builds the site and publishes the `out/` folder to the `gh-pages` branch.
 
-In the repo settings, set **Pages → Source** to **GitHub Actions**.
+In the repo settings, set **Pages → Source** to **Deploy from a branch**, branch **`gh-pages`**, folder **`/` (root)**.
