@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,99618,e=>{"use strict";var t=e.i(71645),c=e.i(75679);e.s(["BlogViewTracker",0,function({slug:e,title:i}){return(0,t.useEffect)(()=>{(0,c.trackBlogView)(e,i)},[e,i]),null}])}]);

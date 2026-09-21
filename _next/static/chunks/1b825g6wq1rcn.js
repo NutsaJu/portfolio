@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,95397,e=>{"use strict";var c=e.i(43476),i=e.i(22016),t=e.i(75679);e.s(["TrackedBlogLink",0,function({href:e,slug:o,title:r,className:l,children:n}){return(0,c.jsx)(i.default,{href:e,className:l,onClick:()=>(0,t.trackBlogOpen)(o,r),children:n})}])}]);
