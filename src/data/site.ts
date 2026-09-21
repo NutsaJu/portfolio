@@ -1,3 +1,6 @@
+/** Canonical site URL for GitHub Pages project site. */
+export const siteUrl = "https://nutsaju.github.io/portfolio";
+
 export const site = {
   name: "Nutsa Julakidze",
   role: "Frontend Developer",
@@ -8,6 +11,7 @@ export const site = {
   location: "Tbilisi, Georgia",
   email: "julakidzenutsa@gmail.com",
   phone: "+995 599 160 468",
+  url: siteUrl,
   social: {
     linkedin: "https://www.linkedin.com/in/nutsa-julakidze-633327264/",
     github: "https://github.com/NutsaJu",

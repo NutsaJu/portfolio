@@ -22,7 +22,7 @@ const jsonLd = {
     addressLocality: "Tbilisi",
     addressCountry: "GE",
   },
-  url: "https://nutsajulakidze.dev",
+  url: site.url,
   sameAs: [site.social.linkedin, site.social.github],
   knowsAbout: [...site.keywords],
 };

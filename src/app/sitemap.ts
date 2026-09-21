@@ -1,11 +1,12 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/data/blog";
+import { siteUrl } from "@/data/site";
 
-const baseUrl = "https://nutsajulakidze.dev";
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+    url: `${siteUrl}/blog/${post.slug}/`,
     lastModified: new Date(post.date),
     changeFrequency: "monthly" as const,
     priority: 0.7,
@@ -13,13 +14,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     {
-      url: baseUrl,
+      url: `${siteUrl}/`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: `${baseUrl}/blog`,
+      url: `${siteUrl}/blog/`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,

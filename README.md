@@ -39,4 +39,8 @@ Update copy and listings in `src/data/`:
 
 ## Deploy
 
-Designed for Vercel. Update `metadataBase` in `src/app/layout.tsx` and URLs in `sitemap.ts` / `robots.ts` to match your domain.
+Published to GitHub Pages at [https://nutsaju.github.io/portfolio/](https://nutsaju.github.io/portfolio/).
+
+Static export is configured in `next.config.ts` (`output: "export"`, `basePath: "/portfolio"` in production). Pushing to `main` on `NutsaJu/portfolio` runs `.github/workflows/deploy.yml`.
+
+In the repo settings, set **Pages → Source** to **GitHub Actions**.

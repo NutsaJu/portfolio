@@ -19,7 +19,7 @@ const title = `${site.name} — ${site.role} | React, Next.js, TypeScript`;
 const description = `${site.summary} Available for landing pages, e-commerce, portals, and React Native apps.`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nutsajulakidze.dev"),
+  metadataBase: new URL(site.url),
   title: {
     default: title,
     template: `%s | ${site.name}`,
